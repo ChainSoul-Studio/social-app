@@ -18,7 +18,7 @@ const Tab = createMaterialBottomTabNavigator();
 // Redux Setup
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchUser } from "../redux/actions/index";
+import { fetchUser, fetchUserPosts } from "../redux/actions/index";
 
 // Creating empty screen for add tab
 const EmptyScreen = () => {
@@ -28,6 +28,7 @@ const EmptyScreen = () => {
 export class Main extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchUserPosts();
   }
   render() {
     return (
@@ -80,6 +81,7 @@ const mapDispatchProps = (dispatch) =>
   bindActionCreators(
     {
       fetchUser,
+      fetchUserPosts
     },
     dispatch
   );
