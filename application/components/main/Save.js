@@ -53,7 +53,7 @@ export default function Save(props, {navigation}) {
                         caption,
                         creation: firebase.firestore.FieldValue.serverTimestamp()
                     }).then((function () {
-                        navigation.popToTop()
+                        props.navigation.popToTop()
                     }))
     }
   };
