@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Button, Image } from "react-native";
 import { Camera } from 'expo-camera'
 import * as ImagePicker from 'expo-image-picker'
 
-export default function ImagePickerExample() {
+export default function Add({navigation}) {
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [ camera, setCamera ] = useState(null)
@@ -59,6 +59,7 @@ export default function ImagePickerExample() {
       </View>
 
       <Button
+      style={{flex: 1}}
         title="Flip Image"
         onPress={() => {
           setType(
@@ -69,6 +70,7 @@ export default function ImagePickerExample() {
         }}
       ></Button>
       <Button title='Take Picture' onPress={() => takePicture()}/>
+      <Button title='Save' onPress={() => navigation.navigate('Save', {image})}/>
       <Button title='Pick Image From Gallery' onPress={() => pickImage()}/>
       {image && <Image source={{ uri: image }} style={{flex: 1}} />}
     </View>
